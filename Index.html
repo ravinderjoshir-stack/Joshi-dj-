@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOSHI DJ | Sound & Events</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:#08090d;color:#fff;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:18px;display:flex;justify-content:space-between;
+ align-items:center;background:#11131a;
+ border-bottom:1px solid #292b38;
+}
+.logo{font-size:24px;font-weight:900}
+.logo span{color:#ff2e93}
+nav a{color:white;text-decoration:none;margin:0 7px}
+.hero{
+ text-align:center;padding:75px 20px;
+ background:radial-gradient(circle,#381044,#08090d 70%);
+}
+.hero h1{font-size:52px;margin:10px}
+.hero h1 span{color:#ff2e93}
+.hero p{color:#ccc;line-height:1.7}
+.btn{
+ display:inline-block;background:#ff2e93;color:white;
+ padding:13px 20px;border:0;border-radius:25px;
+ text-decoration:none;font-weight:bold;cursor:pointer;
+}
+section{padding:35px 18px;scroll-margin-top:15px}
+h2{text-align:center;font-size:29px}
+.cards{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:15px;max-width:1000px;margin:25px auto;
+}
+.card{
+ background:#14151d;border:1px solid #34303d;
+ border-radius:15px;padding:22px;text-align:center;
+}
+.card .emoji{font-size:45px}
+.card h3{color:#ff2e93}
+.card p{color:#ccc;line-height:1.6;font-size:14px}
+form{
+ max-width:550px;margin:auto;padding:22px;
+ background:#14151d;border-radius:15px;
+}
+input,select,textarea{
+ width:100%;padding:13px;margin:8px 0 15px;
+ background:#08090d;color:white;
+ border:1px solid #444;border-radius:8px;
+}
+label{font-size:14px;color:#ddd}
+form button{width:100%}
+#result{color:#39e7ff;line-height:1.6}
+footer{
+ text-align:center;padding:28px 15px;
+ background:#11131a;color:#aaa;
+}
+@media(max-width:650px){
+ .cards{grid-template-columns:1fr 1fr}
+ .hero h1{font-size:40px}
+ nav a{font-size:12px;margin:0 3px}
+ header{flex-wrap:wrap;gap:12px}
+}
+@media(max-width:380px){
+ .cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">JOSHI <span>DJ</span></div>
+ <nav>
+  <a href="#services">Services</a>
+  <a href="#sound">Sound</a>
+  <a href="#booking">Booking</a>
+ </nav>
+</header>
+
+<div class="hero">
+ <p>🔊 SOUND • LIGHTS • EVENTS 🎧</p>
+ <h1>FEEL THE <span>BEAT</span></h1>
+ <p>DJ Booking, DJ Posters, Video Editing aur
+ Powerful Sound System — sab ek jagah!</p>
+ <a class="btn" href="#booking">BOOK NOW ↗</a>
+</div>
+
+<section id="services">
+ <h2>🔥 OUR SERVICES</h2>
+ <div class="cards">
+  <div class="card">
+   <div class="emoji">🎧</div>
+   <h3>DJ Booking</h3>
+   <p>Wedding, birthday aur party events.</p>
+  </div>
+  <div class="card">
+   <div class="emoji">🖼️</div>
+   <h3>Poster Design</h3>
+   <p>DJ booking poster aur social media design.</p>
+  </div>
+  <div class="card">
+   <div class="emoji">🎬</div>
+   <h3>Video Editing</h3>
+   <p>DJ reels aur event video editing.</p>
+  </div>
+ </div>
+</section>
+
+<section id="sound">
+ <h2>🔊 SOUND SYSTEM</h2>
+ <div class="cards">
+  <div class="card">
+   <div class="emoji">🔊</div>
+   <h3>DJ Tops</h3>
+   <p>Powerful sound aur clear vocals.</p>
+  </div>
+  <div class="card">
+   <div class="emoji">🔉</div>
+   <h3>Bass</h3>
+   <p>Deep bass aur dance floor sound.</p>
+  </div>
+  <div class="card">
+   <div class="emoji">💡</div>
+   <h3>DJ Lights</h3>
+   <p>Colourful stage aur party lighting.</p>
+  </div>
+ </div>
+</section>
+
+<section id="booking">
+ <h2>📅 BOOK JOSHI DJ</h2>
+ <form id="bookingForm">
+  <label>Aapka Naam</label>
+  <input id="name" required placeholder="Naam likhein">
+
+  <label>Mobile Number</label>
+  <input id="phone" required type="tel"
+   pattern="[0-9+() -]{8,18}" placeholder="Mobile number">
+
+  <label>Event Date</label>
+  <input id="date" type="date" required>
+
+  <label>Kaunsi Service Chahiye?</label>
+  <select id="service" required>
+   <option value="">Service select karein</option>
+   <option>DJ Booking</option>
+   <option>Sound System</option>
+   <option>DJ Lights</option>
+   <option>Poster Design</option>
+   <option>Video Editing</option>
+   <option>Poster + Video Editing</option>
+  </select>
+
+  <label>City / Event Details</label>
+  <textarea id="details" rows="3"
+   placeholder="Apni location aur event details"></textarea>
+
+  <button class="btn" type="submit">
+   WhatsApp Booking Karein ↗
+  </button>
+  <p id="result"></p>
+ </form>
+</section>
+
+<footer>
+ <h3>JOSHI <span style="color:#ff2e93">DJ</span></h3>
+ <p>Sound • Lights • Events</p>
+ <p>© <span id="year"></span> JOSHI DJ</p>
+</footer>
+
+<script>
+const BUSINESS_NUMBER = "919671152113";
+
+document.getElementById("year").textContent =
+ new Date().getFullYear();
+
+document.getElementById("date").min =
+ new Date().toLocaleDateString("en-CA");
+
+document.getElementById("bookingForm")
+.addEventListener("submit", function(e) {
+ e.preventDefault();
+
+ const name = document.getElementById("name").value.trim();
+ const phone = document.getElementById("phone").value.trim();
+ const date = document.getElementById("date").value;
+ const service = document.getElementById("service").value;
+ const details = document.getElementById("details").value.trim();
+
+ const message =
+  "Namaste JOSHI DJ! Mujhe booking karni hai.%0A" +
+  "Naam: " + encodeURIComponent(name) + "%0A" +
+  "Mobile: " + encodeURIComponent(phone) + "%0A" +
+  "Date: " + encodeURIComponent(date) + "%0A" +
+  "Service: " + encodeURIComponent(service) + "%0A" +
+  "Details: " + encodeURIComponent(details || "Nahi di gayi");
+
+ document.getElementById("result").textContent =
+  "WhatsApp khola ja raha hai...";
+
+ const url = "https://wa.me/" + BUSINESS_NUMBER +
+  "?text=" + message;
+
+ window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
